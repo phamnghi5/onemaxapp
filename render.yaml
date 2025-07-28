@@ -8,11 +8,3 @@ services:
     buildCommand: cd backend && npm install
     startCommand: cd backend && npm run start
     autoDeploy: true
-
-staticSites:
-  - name: onemax-frontend
-    plan: free
-    branch: main
-    buildCommand: cd onemax-frontend && npm install && npm run build
-    publishDirectory: onemax-frontend/build
-    autoDeploy: true
