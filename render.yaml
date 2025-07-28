@@ -9,9 +9,11 @@ services:
     startCommand: cd backend && npm run start
     autoDeploy: true
 
-  - type: static
+  - type: web
     name: onemax-frontend
+    env: static
     plan: free
+    region: oregon
     branch: main
     buildCommand: cd onemax-frontend && npm install && npm run build
     staticPublishPath: onemax-frontend/build
