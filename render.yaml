@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: onemax-backend
+    env: node
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm run start
+    autoDeploy: true
+    healthCheckPath: "/"
+
+  - type: web
+    name: onemax-frontend
+    env: static
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: cd onemax-frontend && npm install && npm run build
+    staticPublishPath: onemax-frontend/build
+    autoDeploy: true
