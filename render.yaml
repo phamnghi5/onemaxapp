@@ -6,13 +6,12 @@ services:
     region: oregon
     branch: main
     buildCommand: cd backend && npm install
-    startCommand: cd backend && npm run start
+    startCommand: npm run start
     autoDeploy: true
     healthCheckPath: "/"
 
-  - type: web
+  - type: static
     name: onemax-frontend
-    env: static
     plan: free
     region: oregon
     branch: main
