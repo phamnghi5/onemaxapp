@@ -13,7 +13,7 @@ services:
     name: onemax-frontend
     env: static
     plan: free
-    region: oregon
+    # region: oregon  <-- BỎ DÒNG NÀY ĐI
     branch: main
     buildCommand: cd onemax-frontend && npm install && npm run build
     staticPublishPath: onemax-frontend/build
