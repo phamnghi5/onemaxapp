@@ -6,5 +6,5 @@ services:
     region: oregon
     branch: main
     buildCommand: cd backend && npm install
-    startCommand: cd backend && npm run start
+    startCommand: npm run --prefix backend start
     autoDeploy: true
