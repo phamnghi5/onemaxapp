@@ -8,14 +8,12 @@ services:
     buildCommand: cd backend && npm install
     startCommand: cd backend && npm run start
     autoDeploy: true
-    healthCheckPath: "/"
 
-  - type: web
+  - type: static
     name: onemax-frontend
-    env: node
     plan: free
     region: oregon
     branch: main
     buildCommand: cd onemax-frontend && npm install && npm run build
-    startCommand: npx serve -s onemax-frontend/build
+    staticPublishPath: onemax-frontend/build
     autoDeploy: true
