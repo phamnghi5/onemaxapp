@@ -12,7 +12,6 @@ services:
   - type: web
     name: onemax-frontend
     env: static
-    plan: starter
     branch: main
     buildCommand: cd onemax-frontend && npm install && npm run build
     staticPublishPath: onemax-frontend/dist
