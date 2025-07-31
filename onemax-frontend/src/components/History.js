@@ -6,7 +6,7 @@ function History({ userId }) {
 
   useEffect(() => {
     const fetchHistory = async () => {
-      const res = await axios.get(`http://localhost:5000/history/${userId}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/history/${userId}`);
       setHistory(res.data);
     };
     fetchHistory();

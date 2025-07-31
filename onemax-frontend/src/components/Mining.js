@@ -8,7 +8,7 @@ function Mining({ userId }) {
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const res = await axios.get(`http://localhost:5000/balance/${userId}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/balance/${userId}`);
       setCooldown(res.data.cooldown);
     };
     fetchBalance();
@@ -16,7 +16,7 @@ function Mining({ userId }) {
 
   const startMining = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/mine', { userId });
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/mine`, { userId });
       setTokenEarned(res.data.amount);
       setCooldown(86400); // 24h
     } catch (err) {

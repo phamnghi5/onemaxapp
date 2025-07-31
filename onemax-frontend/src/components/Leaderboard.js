@@ -6,7 +6,7 @@ function Leaderboard() {
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
-      const res = await axios.get('http://localhost:5000/leaderboard');
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/leaderboard`);
       setTopUsers(res.data);
     };
     fetchLeaderboard();

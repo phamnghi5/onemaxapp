@@ -7,7 +7,11 @@ function Withdraw({ userId }) {
 
   const handleWithdraw = async () => {
     try {
-      await axios.post('http://localhost:5000/withdraw', { userId, wallet, amount });
+      await axios.post(`${process.env.REACT_APP_API_URL}/withdraw`, {
+        userId,
+        wallet,
+        amount
+      });
       alert('Đã gửi yêu cầu rút');
     } catch (err) {
       alert('Rút thất bại');
@@ -17,8 +21,16 @@ function Withdraw({ userId }) {
   return (
     <>
       <h3>Rút token về ví Phantom</h3>
-      <input placeholder="Ví Phantom" value={wallet} onChange={e => setWallet(e.target.value)} />
-      <input placeholder="Số lượng OMX" value={amount} onChange={e => setAmount(e.target.value)} />
+      <input
+        placeholder="Ví Phantom"
+        value={wallet}
+        onChange={(e) => setWallet(e.target.value)}
+      />
+      <input
+        placeholder="Số lượng OMX"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+      />
       <button onClick={handleWithdraw}>Rút</button>
     </>
   );

@@ -9,8 +9,11 @@ function Register({ onRegister }) {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/auth/register', {
-        email, password, username, referralCode
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, {
+        email,
+        password,
+        username,
+        referralCode
       });
       onRegister(res.data.userId);
     } catch (err) {
@@ -21,10 +24,27 @@ function Register({ onRegister }) {
   return (
     <>
       <h2>Đăng ký</h2>
-      <input placeholder="Tên người dùng" value={username} onChange={e => setUsername(e.target.value)} />
-      <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-      <input placeholder="Mật khẩu" type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      <input placeholder="Mã giới thiệu (nếu có)" value={referralCode} onChange={e => setReferralCode(e.target.value)} />
+      <input
+        placeholder="Tên người dùng"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        placeholder="Mật khẩu"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <input
+        placeholder="Mã giới thiệu (nếu có)"
+        value={referralCode}
+        onChange={(e) => setReferralCode(e.target.value)}
+      />
       <button onClick={handleSubmit}>Đăng ký</button>
     </>
   );
