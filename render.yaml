@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: onemax-backend
+    env: node
+    plan: starter
+    region: oregon
+    branch: main
+    buildCommand: cd backend && npm install
+    startCommand: npm run --prefix backend start
+    autoDeploy: true
+
+  - type: web
+    name: onemax-frontend
+    env: static
+    branch: main
+    buildCommand: cd onemax-frontend && npm install && npm run build
+    staticPublishPath: onemax-frontend/dist
+    autoDeploy: true
+    envVars:
+      - key: VITE_API_URL
+        value: https://onemax-backend.onrender.com
